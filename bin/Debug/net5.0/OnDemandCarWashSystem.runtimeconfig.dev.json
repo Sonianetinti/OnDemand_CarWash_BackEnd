@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\nsonia\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\nsonia\\.nuget\\packages"
+    ]
+  }
+}
