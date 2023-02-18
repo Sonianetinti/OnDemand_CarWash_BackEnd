@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using OnDemandCarWashSystem.Models;
 using OnDemandCarWashSystem.Repository;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -130,8 +133,14 @@ namespace OnDemandCarWashSystem.Controllers
             {
                 return BadRequest();
             }
-            await _user.LoginModel(login); 
-            return Ok(new { message = "Login Successful" });
+            var u = await _user.LoginModel(login);
+            if(u == null)
+            {
+                return BadRequest(new { message = "User Not Found" });
+            }
+            await _user.LoginModel(login);
+            string Token = CreateJwt(u);
+            return Ok(new {Token, message = "Login Successfull" });
         }
         private string CheckConfirmPasswordStrength(string password,string confirmpassword)
         {
@@ -161,6 +170,24 @@ namespace OnDemandCarWashSystem.Controllers
                 sb.Append("Password should contain special Character" + Environment.NewLine);
             return sb.ToString();
         }
+
+        //token validation
+        private string CreateJwt(UserModel user) 
+        { 
+            var jwtTokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes("vajjaanujagmailcom");
+            var identity = new ClaimsIdentity(new Claim[] 
+            { 
+                new Claim(ClaimTypes.Role, user.Role),
+                new Claim(ClaimTypes.Name, $"{user.FirstName} {user.LastName}") });
+            var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256); 
+            var tokenDescriptor = new SecurityTokenDescriptor { Subject = identity, Expires = DateTime.Now.AddDays(1), SigningCredentials = credentials };
+            var token = jwtTokenHandler.CreateToken(tokenDescriptor);
+            return jwtTokenHandler.WriteToken(token);
+        }
+
+
+
     }
 }
 

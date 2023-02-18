@@ -59,16 +59,16 @@ namespace OnDemandCarWashSystem.Repository
             await carwashdb.SaveChangesAsync();
             return update;
         }
-        public async Task LoginModel(LoginModel login)
+        public async Task<UserModel> LoginModel(LoginModel login)
         {
-            try
-            {
+           
                 var users = await carwashdb.UserTable.FirstOrDefaultAsync(x => x.Email == login.Email && x.Password == login.Password);
-            }
-            catch (Exception)
+            if(users == null)
             {
-                throw;
+                return null;
             }
+            return users;
+            
         }
     }
 }

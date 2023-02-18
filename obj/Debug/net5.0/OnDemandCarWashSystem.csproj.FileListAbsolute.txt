@@ -29,7 +29,6 @@ C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Deb
 C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -59,3 +58,4 @@ C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\obj\Deb
 C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\obj\Debug\net5.0\ref\OnDemandCarWashSystem.dll
 C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\obj\Debug\net5.0\OnDemandCarWashSystem.pdb
 C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\obj\Debug\net5.0\OnDemandCarWashSystem.genruntimeconfig.cache
+C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

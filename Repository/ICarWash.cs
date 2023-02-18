@@ -13,6 +13,6 @@ namespace OnDemandCarWashSystem.Repository
         Task<UserModel> AddAsync(UserModel entity);
         Task<UserModel> DeleteAsync(int id);
         Task<UserModel> UpdateAsync(int id, UserModel entity);
-        Task LoginModel(LoginModel login);
+        Task<UserModel> LoginModel(LoginModel login);
     }
 }
