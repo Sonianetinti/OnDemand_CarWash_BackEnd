@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnDemandCarWashSystem.Models;
 
 namespace OnDemandCarWashSystem.Migrations
 {
     [DbContext(typeof(CarWashDbContext))]
-    partial class CarWashDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230222062540_car")]
+    partial class car
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -41,6 +41,8 @@ namespace OnDemandCarWashSystem
             services.AddDbContext<CarWashDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("CarWash")));
             services.AddScoped<ICarWash, UserRepository>();
+            services.AddScoped<IPackage, Package>();
+            services.AddScoped<ICar, Car>();
             services.AddCors(option =>
             {
                 option.AddPolicy("MyPolicy", builder =>

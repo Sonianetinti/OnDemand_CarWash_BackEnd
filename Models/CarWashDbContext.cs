@@ -8,11 +8,13 @@ namespace OnDemandCarWashSystem.Models
 {
     public class CarWashDbContext:DbContext
     {
-        public CarWashDbContext(DbContextOptions<CarWashDbContext> options) : base(options)
-        {
+            public CarWashDbContext(DbContextOptions<CarWashDbContext> options) : base(options)
+            {
 
-        }
-        public DbSet<UserModel> UserTable { get; set; }
+            }
+            public DbSet<UserModel> UserTable { get; set; }
+            public DbSet<CarModel> CarTable { get; set; }
+            public DbSet<CarPackageModel> PackageTable { get; set; }
     }
 }
 
