@@ -43,6 +43,7 @@ namespace OnDemandCarWashSystem
             services.AddScoped<ICarWash, UserRepository>();
             services.AddScoped<IPackage, Package>();
             services.AddScoped<ICar, Car>();
+            services.AddScoped<IOrder, Order>();
             services.AddCors(option =>
             {
                 option.AddPolicy("MyPolicy", builder =>

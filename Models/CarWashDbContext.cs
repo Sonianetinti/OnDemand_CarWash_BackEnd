@@ -15,6 +15,9 @@ namespace OnDemandCarWashSystem.Models
             public DbSet<UserModel> UserTable { get; set; }
             public DbSet<CarModel> CarTable { get; set; }
             public DbSet<CarPackageModel> PackageTable { get; set; }
+            public DbSet<OrderModel> OrderTable { get; set; }
+
+
     }
 }
 
