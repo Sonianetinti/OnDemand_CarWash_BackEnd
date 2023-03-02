@@ -26,37 +26,34 @@ namespace OnDemandCarWashSystem.Controllers
         }
         [HttpGet]
         [Route("{id:int}")]
-        [ActionName("GetorderAsync")]
+        [ActionName("GetOrderAsync")]
         public async Task<IActionResult> GetOrderAsync(int id)
         {
-            var order = await _order.GetAsync(id);
-            if (order == null)
+            var package = await _order.GetAsync(id);
+            if (package == null)
             {
                 return NotFound();
             }
-            return Ok(order);
+            return Ok(package);
         }
         [HttpPost]
-        
-        public async Task<IActionResult> AddorderAsync(OrderModel addorder)
+        public async Task<IActionResult> AddCarAsync(OrderModel addorder)
         {
             var order = new Models.OrderModel()
             {
-                WashingInstructions=addorder.WashingInstructions,
-                Date=addorder.Date,
-                status=addorder.status,
-                packageName=addorder.packageName,
-                description=addorder.description,
-                price=addorder.price,
-                city=addorder.city,
-                pincode=addorder.pincode,
-            };
-            await _order.AddAsync(order);
+                WashingInstructions = addorder.WashingInstructions,
+                Date = addorder.Date,
+                status = addorder.status,
+                packageName = addorder.packageName,
+                price = addorder.price,
+                city = addorder.city,
+                pincode = addorder.pincode,
+            }; await _order.AddAsync(order);
             return Ok();
         }
-        #region
-        //delete method
-        [HttpDelete]
+        #region 
+        //delete method  
+        [HttpDelete]
         [Route("{id:int}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
@@ -69,13 +66,14 @@ namespace OnDemandCarWashSystem.Controllers
                 }
             }
             catch (Exception)
-            { }
+            {
+            }
             return Ok();
         }
-        #endregion
-        [HttpPut]
+        #endregion
+        [HttpPut]
         [Route("{id:int}")]
-        public async Task<IActionResult> UpdateorderAsync([FromRoute] int id, [FromBody] OrderModel updateorder)
+        public async Task<IActionResult> UpdateOrderAsync([FromRoute] int id,[FromBody] OrderModel updateorder)
         {
             try
             {
@@ -85,11 +83,10 @@ namespace OnDemandCarWashSystem.Controllers
                     Date = updateorder.Date,
                     status = updateorder.status,
                     packageName = updateorder.packageName,
-                    description = updateorder.description,
+                   
                     price = updateorder.price,
                     city = updateorder.city,
                     pincode = updateorder.pincode,
-
                 };
                 order = await _order.UpdateAsync(id, order);
                 if (order == null)
@@ -103,5 +100,4 @@ namespace OnDemandCarWashSystem.Controllers
         }
     }
 }
-
 

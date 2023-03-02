@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace OnDemandCarWashSystem.Repository
 {
-    public class Order : IOrder
+    public class Order:IOrder
     {
         private readonly CarWashDbContext carwashdb;
-        public Order(CarWashDbContext carwashDb)
-        {
-            this.carwashdb = carwashDb;
-        }
+        public Order(CarWashDbContext carwashDb) { this.carwashdb = carwashDb; }
         public async Task<OrderModel> AddAsync(OrderModel order)
         {
             await carwashdb.AddAsync(order);
@@ -22,8 +19,7 @@ namespace OnDemandCarWashSystem.Repository
         }
         public async Task<OrderModel> DeleteAsync(int id)
         {
-            var order = await carwashdb.OrderTable.FirstOrDefaultAsync(x => x.Id == id);
-            if (order == null)
+            var order = await carwashdb.OrderTable.FirstOrDefaultAsync(x => x.Id == id); if (order == null)
             {
                 return null;
             }
@@ -36,32 +32,25 @@ namespace OnDemandCarWashSystem.Repository
             var order = await carwashdb.OrderTable.ToListAsync();
             return order;
         }
-        public async Task<OrderModel> GetAsync(int id)
-        {
-            return await carwashdb.OrderTable.FirstOrDefaultAsync(x => x.Id == id);
-        }
-        public async Task<OrderModel> UpdateAsync(int id, OrderModel order)
+        public async Task<OrderModel> GetAsync(int id) { return await carwashdb.OrderTable.FirstOrDefaultAsync(x => x.Id == id); }
+        public async Task<OrderModel> UpdateAsync(int id, OrderModel package)
         {
             var update = await carwashdb.OrderTable.FirstOrDefaultAsync(x => x.Id == id);
             if (update == null)
             {
                 return null;
             }
-
-            update.WashingInstructions= order.WashingInstructions;
-            update.Date = order.Date;
-            update.status = order.status;
-            update.packageName = order.packageName;
-            update.description = order.description;
-            update.price = order.price;
-            update.city = order.city;
-            update.pincode = order.pincode;
+            update.WashingInstructions = package.WashingInstructions;
+            update.Date = package.Date;
+            update.status = package.status;
+            update.packageName = package.packageName;
+            update.price = package.price;
+            update.city = package.city;
+            update.pincode = package.pincode;
             await carwashdb.SaveChangesAsync();
             return update;
         }
-
-
-
     }
+
 }
 

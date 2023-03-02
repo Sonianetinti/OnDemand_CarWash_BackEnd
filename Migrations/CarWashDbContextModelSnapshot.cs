@@ -74,9 +74,6 @@ namespace OnDemandCarWashSystem.Migrations
                     b.Property<string>("city")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("description")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("packageName")
                         .HasColumnType("nvarchar(max)");
 

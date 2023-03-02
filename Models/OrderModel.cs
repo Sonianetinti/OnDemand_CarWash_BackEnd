@@ -10,17 +10,12 @@ namespace OnDemandCarWashSystem.Models
     {
         [Key]
         public int Id { get; set; }
-        public string  WashingInstructions { get; set; }
+        public string WashingInstructions { get; set; }
         public DateTime Date { get; set; }
         public string status { get; set; }
         public string packageName { get; set; }
-        public string description { get; set; }
-        public double price{ get; set; }
-        public string city{ get; set; }
-        public string pincode{ get; set; }
-
-
-
-
+        public double price { get; set; }
+        public string city { get; set; }
+        public string pincode { get; set; }
     }
 }

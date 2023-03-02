@@ -10,7 +10,7 @@ using OnDemandCarWashSystem.Models;
 namespace OnDemandCarWashSystem.Migrations
 {
     [DbContext(typeof(CarWashDbContext))]
-    [Migration("20230228114115_order")]
+    [Migration("20230301140446_order")]
     partial class order
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,9 +74,6 @@ namespace OnDemandCarWashSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("city")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("packageName")
