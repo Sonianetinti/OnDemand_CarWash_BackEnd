@@ -6,6 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MimeKit;
+using MailKit.Net.Smtp;
+
 
 namespace OnDemandCarWashSystem.Controllers
 {
@@ -24,6 +27,7 @@ namespace OnDemandCarWashSystem.Controllers
             var orders = await _order.GetAllAsync();
             return Ok(orders);
         }
+
         [HttpGet]
         [Route("{id:int}")]
         [ActionName("GetOrderAsync")]
@@ -36,6 +40,53 @@ namespace OnDemandCarWashSystem.Controllers
             }
             return Ok(package);
         }
+
+
+        [HttpPost]
+        [Route("{id:int}")]
+        // [ActionName("SendOrderEmailAsync")]
+        public async Task<IActionResult> SendOrderEmail(int id, UserModel user) {
+        // public async Task<IActionResult> SendOrderEmail(int id, string email) {
+            var package = await _order.GetAsync(id);
+            if (package == null)
+            {
+                return NotFound();
+            }
+
+            double totalamount = 0;
+            string textBody = "<p> Hello User, </p> <p>Thank you for ordering from Ondemand Car Wash system.</p> <p>Once the order is approved by admin, we will process it</p>";
+            textBody += " <table border=" + 1 + " cellpadding=" + 0 + " cellspacing=" + 0 + "><tr bgcolor='#4da6ff'><td><b>washingInstructions</b></td> <td> <b> Date</b> </td> <td> <b>Status</b> </td> <td> <b>packageName</b> </td><td> <b>price</b> </td><td> <b>city</b> </td><td> <b>pincode</b> </td></tr>";
+            // + " width = " + 400 + "
+                 
+            textBody += "<tr><td>" + package.WashingInstructions + "</td><td> " + package.Date + "</td><td> " + package.status+ "</td><td> " + package.packageName+"</td><td>" + Convert.ToInt32(package.price) + "</td> <td>" + package.city  + "</td> <td>" + package.pincode  +  "</td></tr>" ;
+            totalamount += package.price;
+
+            textBody += "</table> <br>";
+            textBody += "<strong>Order Date :</strong>";
+            textBody += package.Date.ToShortDateString();
+            textBody += "<br><strong>Total Order Amount :</strong>";
+            textBody += totalamount;
+            textBody += "<br>";
+            textBody += "<br><i>If you have any questions, contact us here on <b>netintisonia@gmail.com</b>! " +
+            "We are here to help you! </i>";
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Admin", "neitintisonia@gmail.com"));
+            message.To.Add(new MailboxAddress("Customer", user.Email));
+            message.Subject = "Order Placed - Pharmacy Management System";
+            message.Body = new TextPart("html") {
+                Text = textBody
+            };
+
+            using (var client = new SmtpClient()) {
+                client.Connect("smtp.gmail.com", 587, false);
+                client.Authenticate("netintisonia@gmail.com", "uswokbwfulqkyocz");
+                client.Send(message);
+                client.Disconnect(true);
+            }
+            return Ok("Email sent Successfully");
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddCarAsync(OrderModel addorder)
         {

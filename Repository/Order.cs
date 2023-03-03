@@ -50,7 +50,13 @@ namespace OnDemandCarWashSystem.Repository
             await carwashdb.SaveChangesAsync();
             return update;
         }
+
+
+        public async Task<OrderModel> SendOrderEmail(int id, UserModel user) {
+            return await carwashdb.OrderTable.FirstOrDefaultAsync(x => x.Id == id);
+        }
     }
+
 
 }
 

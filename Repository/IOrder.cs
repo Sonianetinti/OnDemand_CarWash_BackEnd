@@ -14,6 +14,6 @@ namespace OnDemandCarWashSystem.Repository
         Task<OrderModel> AddAsync(OrderModel entity);
         Task<OrderModel> DeleteAsync(int id);
         Task<OrderModel> UpdateAsync(int id, OrderModel entity);
-
+        Task<OrderModel> SendOrderEmail(int id, UserModel user);
     }
 }

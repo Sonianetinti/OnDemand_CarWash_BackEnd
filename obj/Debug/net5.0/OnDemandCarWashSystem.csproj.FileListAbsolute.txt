@@ -59,3 +59,12 @@ C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\obj\Deb
 C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\obj\Debug\net5.0\OnDemandCarWashSystem.pdb
 C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\obj\Debug\net5.0\OnDemandCarWashSystem.genruntimeconfig.cache
 C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\MailKit.dll
+C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\MimeKit.dll
+C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\BouncyCastle.Crypto.dll
+C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\System.Formats.Asn1.dll
+C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\System.Text.Encoding.CodePages.dll
+C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+C:\Users\nsonia\source\repos\OnDemandCarWashSystem\OnDemandCarWashSystem\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Text.Encoding.CodePages.dll

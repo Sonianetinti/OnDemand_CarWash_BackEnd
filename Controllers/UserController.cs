@@ -140,7 +140,7 @@ namespace OnDemandCarWashSystem.Controllers
             }
             await _user.LoginModel(login);
             string Token = CreateJwt(u);
-            return Ok(new {Token, message = "Login Successfull" });
+            return Ok(new {Token, u, message = "Login Successfull" });
         }
         private string CheckConfirmPasswordStrength(string password,string confirmpassword)
         {
